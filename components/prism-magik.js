@@ -49,7 +49,8 @@ Prism.languages.magik = {
 
 	'number': {
 		pattern: /\b\d+(?:\.\d+)?(?:[eE&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])[rR][a-zA-Z0-9]+\b/,
-		greedy: true
+		greedy: true,
+		alias: 'magik-number'
 	},
 
 	'string': {
