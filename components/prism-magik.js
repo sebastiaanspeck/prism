@@ -42,7 +42,10 @@ Prism.languages.magik = {
 		/@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/, // global reference
 	],
 
-	'symbol': /:(?:\|[^|]*\||[\w?!])+/,
+	'symbol': {
+		pattern: /:(?:\|[^|]*\||[\w?!])+/,
+		alias: 'magik-symbol'
+	},
 
 	'number': {
 		pattern: /\b\d+(?:\.\d+)?(?:[eE&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])[rR][a-zA-Z0-9]+\b/,
