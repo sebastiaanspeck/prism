@@ -28,7 +28,7 @@ Prism.languages.magik = {
 
 	'boolean': {
 		pattern: /\b_(?:false|maybe|true)\b/,
-		alias: 'magik-boolean'
+		alias: 'boolean'
 	},
 
 	'char': {
@@ -44,13 +44,13 @@ Prism.languages.magik = {
 
 	'symbol': {
 		pattern: /:(?:\|[^|]*\||[\w?!])+/,
-		alias: 'magik-symbol'
+		alias: 'symbol'
 	},
 
 	'number': {
 		pattern: /\b\d+(?:\.\d+)?(?:[eE&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])[rR][a-zA-Z0-9]+\b/,
 		greedy: true,
-		alias: 'magik-number'
+		alias: 'number'
 	},
 
 	'string': {
@@ -84,21 +84,38 @@ Prism.languages.magik = {
 	'punctuation': /[[\](){},;]/,
 
 	'method-call': {
-    	pattern: /\b([a-zA-Z_]\w*)(\.)[a-zA-Z_]\w*[!?]?(?=\s*\()/,
-    	lookbehind: false,
-    	greedy: true,
+		pattern: /\b([a-zA-Z_]\w*)(\.)[a-zA-Z_]\w*[!?]?(?:\s*\([^()]*\))?/,
+		lookbehind: false,
+		greedy: true,
 		inside: {
-		'magik-exemplar': {
-			pattern: /^[a-zA-Z_]\w*/,
-			alias: 'magik-exemplar'
-		},
-		'dot': {
-			pattern: /\./
-		},
-		'magik-method': {
-			pattern: /[a-zA-Z_]\w*[!?]?$/,
-			alias: 'magik-method'
-		}
+			'class-name': {
+				pattern: /^[a-zA-Z_]\w*/,
+				alias: 'class-name'
+			},
+			'dot': {
+				pattern: /\./
+			},
+        'function': {
+            pattern: /[a-zA-Z_]\w*[!?]?(?:\s*\([^()]*\))?/,
+            alias: 'function',
+            inside: {
+                'function': {
+                    pattern: /^[a-zA-Z_]\w*[!?]?/,
+                    alias: 'function'
+                },
+                'parameters': {
+                    pattern: /\([^()]*\)/,
+                    alias: 'symbol',
+                    inside: {
+                        'punctuation': /[(),]/,
+                        'parameter': {
+                            pattern: /[^(),\s]+/,
+                            alias: 'variable'
+                        }
+                    }
+                }
+            }
+        }
 		}
   	}
 };
