@@ -10,6 +10,7 @@ Prism.languages.magik = {
 		/\b_(?:abstract|endmethod|iter|method|private)\b/, // method
 		/\b_(?:endproc|proc)\b/, // procedure
 		/\b_(?:block|endblock)\b/, // block
+		/\b_(?:elif|else|endif|if|then)\b/, // if
 		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/, // loop
 		/\b_(?:default|handling)\b/, // handling
 		/\b_(?:catch|endcatch)\b/, // catch
@@ -20,11 +21,6 @@ Prism.languages.magik = {
 		/\b_(?:endlock|lock)\b/, // lock
 		/\b_with\b/ // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
 	],
-
-	'control-flow': {
-		pattern: /\b_(?:if|else|elif|then|endif)\b/,
-		alias: 'my-control'  // single CSS class for all
-	},
 
 	'builtin': [
 		/\b_(?:clone|package|self|super|thisthread|unset)\b/
