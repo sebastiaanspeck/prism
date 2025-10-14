@@ -26,7 +26,10 @@ Prism.languages.magik = {
 		/\b_(?:clone|package|self|super|thisthread|unset)\b/
 	],
 
-	'boolean': /\b_(?:false|maybe|true)\b/,
+	'boolean': {
+		pattern: /\b_(?:false|maybe|true)\b/,
+		alias: 'magik-boolean'
+	},
 
 	'char': {
 		pattern: /%(?:[a-zA-Z][a-zA-Z0-9_?!]*|.)/,
