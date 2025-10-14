@@ -6,27 +6,27 @@ Prism.languages.magik = {
 	],
 
 	'keyword': [
-		/\b_(?:class|constant|dynamic|global|import|local)\b/, // variables,
-		/\b_(?:abstract|endmethod|iter|method|private)\b/, // method
-		/\b_(?:endproc|proc)\b/, // procedure
-		/\b_(?:block|endblock)\b/, // block
-		/\b_(?:elif|else|endif|if|then)\b/, // if
-		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/, // loop
-		/\b_(?:default|handling)\b/, // handling
-		/\b_(?:catch|endcatch)\b/, // catch
-		/\b_throw\b/, // throw
-		/\b_primitive\b/, // primitive
-		/\b_(?:endtry|try|when)\b/, // try
-		/\b_(?:endprotect|locking|protect|protection)\b/, // protect
-		/\b_(?:endlock|lock)\b/, // lock
-		/\b_with\b/ // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
+		/\b_(?:class|constant|dynamic|global|import|local)\b/i, // variables,
+		/\b_(?:abstract|endmethod|iter|method|private)\b/i, // method
+		/\b_(?:endproc|proc)\b/i, // procedure
+		/\b_(?:block|endblock)\b/i, // block
+		/\b_(?:elif|else|endif|if|then)\b/i, // if
+		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/i, // loop
+		/\b_(?:default|handling)\b/i, // handling
+		/\b_(?:catch|endcatch)\b/i, // catch
+		/\b_throw\b/i, // throw
+		/\b_primitive\b/i, // primitive
+		/\b_(?:endtry|try|when)\b/i, // try
+		/\b_(?:endprotect|locking|protect|protection)\b/i, // protect
+		/\b_(?:endlock|lock)\b/i, // lock
+		/\b_with\b/i // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
 	],
 
 	'builtin': [
-		/\b_(?:clone|package|self|super|thisthread|unset)\b/
+		/\b_(?:clone|package|self|super|thisthread|unset)\b/i
 	],
 
-	'boolean': /\b_(?:false|maybe|true)\b/,
+	'boolean': /\b_(?:false|maybe|true)\b/i,
 
 	'char': {
 		pattern: /%(?:[a-zA-Z][a-zA-Z0-9_?!]*|.)/,
@@ -57,12 +57,12 @@ Prism.languages.magik = {
 	},
 
 	'operator': [
-		/\^<</, /<</, { pattern: /_(?:and|andif|or|orif|xor)<</, greedy: true }, { pattern: /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
-		/>>/, /\b_return\b/, // return operators
-		/\b_(?:cf|is|isnt)\b/, /<>/, />=/, /<=/, /</, />/, /~=/, /=/, // relational operators
-		/\b_(?:and|andif|or|orif|xor)\b/, // logical operators
-		/\*\*/, /\*/, /\//, /\b_(?:div|mod)\b/, // arithmetic operators
-		/\+/, /-/, /\b_not\b/, /~/, // unary operators
+		/\^<</, /<</, { pattern: /_(?:and|andif|or|orif|xor)<</i, greedy: true }, { pattern: /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
+		/>>/, /\b_return\b/i, // return operators
+		/\b_(?:cf|is|isnt)\b/i, /<>/, />=/, /<=/, /</, />/, /~=/, /=/, // relational operators
+		/\b_(?:and|andif|or|orif|xor)\b/i, // logical operators
+		/\*\*/, /\*/, /\//, /\b_(?:div|mod)\b/i, // arithmetic operators
+		/\+/, /-/, /\b_not\b/i, /~/, // unary operators
 	],
 
 	'property': {
