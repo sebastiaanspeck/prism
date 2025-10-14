@@ -81,5 +81,24 @@ Prism.languages.magik = {
 		}
 	},
 
-	'punctuation': /[[\](){},;]/
+	'punctuation': /[[\](){},;]/,
+
+	'method-call': {
+    	pattern: /\b([a-zA-Z_]\w*)(\.)[a-zA-Z_]\w*[!?]?(?=\s*\()/,
+    	lookbehind: false,
+    	greedy: true,
+		inside: {
+		'magik-exemplar': {
+			pattern: /^[a-zA-Z_]\w*/,
+			alias: 'magik-exemplar'
+		},
+		'dot': {
+			pattern: /\./
+		},
+		'magik-method': {
+			pattern: /[a-zA-Z_]\w*[!?]?$/,
+			alias: 'magik-method'
+		}
+		}
+  	}
 };
