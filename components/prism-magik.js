@@ -77,16 +77,15 @@ Prism.languages.magik = {
 
 	'punctuation': /[[\](){},;]/,
 
-	// wat doet dit precies?
-	// 'char': {
-	// 	pattern: /%(?:[a-zA-Z][a-zA-Z0-9_?!]*|.)/,
-	// 	greedy: true
-	// },
+	'char': {
+		pattern: /%(?:[a-zA-Z][a-zA-Z0-9_?!]*|.)/,
+		greedy: true
+	},
 
 	// is dit nog nodig?
 	// 'variable': [
 	// 	/[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/, // global variable
-	// 	/@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/, // global reference
+	// 	/@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/, // global reference toevoegen
 	// ],
 
 	'symbol': [
