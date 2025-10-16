@@ -1,140 +1,105 @@
 /* eslint-disable regexp/prefer-w */
 Prism.languages.magik = {
-	'property': {
+	'pragma': {
 		pattern: /_pragma.*/,
-		greedy: true,
-		alias: 'prolog',
-		inside: {
-			'modifier': /classify_level|topic|usage/
-		}
 	},
 
+	'declaration': [
+		{ pattern: /(?<=_package).*/,	greedy: true },
+		{ pattern: /(?<=_global).*/,	greedy: true },
+	],
+
 	'comment': [
-		{ pattern: /##.*/, greedy: true }, // documentation
+		{ pattern: /##.*/, greedy: true, alias: 'documentation' },
+		{ pattern: /#(?!#).*/, greedy: true },
 	],
 
 	'function': [
+		{ pattern: /\b_(?:abstract|endmethod|iter|method|private)\b/, greedy: true }, // method keywords
+		{ pattern:  /\b_(?:endproc|proc)\b/ }, // procedure 
+		{ pattern: /(?<=\.)\s*([A-Za-z_]+)/ } // method calls
+	],
+
+	'self': [
 		{
-			pattern: /\b_(?:abstract|endmethod|iter|method|private)\b/,
+			pattern: /(?<=_method )\S+(?=\.)/,
 			greedy: true
 		},
 		{
-			pattern:  /\b_(?:endproc|proc)\b/, // procedure
+			pattern: /_self/,
+			greedy: true
 		}
 	],
 
-	'method_call': {
-		pattern: /(?<=\w[\w\[\]_])(\.[a-zA-Z_][a-zA-Z0-9_]*[!?]?)/,
-		inside: {
-			'dot': {
-				pattern: /\./,
-				alias: 'punctuation'
-			},
-			'method_name': {
-				pattern: /^[a-zA-Z_]\w*/,
-				alias: 'function'
-			}
-			}
-		},
-
 	'keyword': [
-	// 	/\b_(?:class|constant|dynamic|global|import|local)\b/, // variables,
-	// 	/\b_(?:block|endblock)\b/, // block
+	 	/\b_(?:class|dynamic|global|import|local)\b/, // variables, constant hoort hier niet bij
+		/\b_(?:block|endblock)\b/, // block
 		/\b_(?:elif|else|endif|if|then)\b/, // if
+		/\b_(?:and|andif|or|orif|xor|not)\b/, // logical operators
+		/\b_(?:is|isnt)\b/, // comparison
+	 	/\b_(?:mod|div)\b/, // math		
 		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/, // loop
-	// 	/\b_(?:default|handling)\b/, // handling
-	// 	/\b_(?:catch|endcatch)\b/, // catch
-	// 	/\b_throw\b/, // throw
-	// 	/\b_primitive\b/, // primitive
+	 	/\b_(?:default|handling)\b/, // handling
+	 	/\b_(?:catch|endcatch)\b/, // catch
+	 	/\b_throw\b/, // throw
+		/>>/, /\b_return\b/, // return
+	 	/\b_primitive\b/, // primitive
 		/\b_(?:endtry|try|when)\b/, // try
 		/\b_(?:endprotect|locking|protect|protection)\b/, // protect
-	// 	/\b_(?:endlock|lock)\b/, // lock
-	// 	/\b_with\b/ // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
+	 	/\b_(?:endlock|lock)\b/, // lock
+		/\b_(?:clone|package|super|thisthread)\b/, // builtins with similar highlighting
+	 	/\b_with\b/, // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
+		/\b_(?:optional|gather|scatter|allresults)\b/ // parameter options
 	],
 
-	// 'builtin': [
-	// 	/\b_(?:clone|package|self|super|thisthread|unset)\b/
-	// ],
+	'boolean': {
+		pattern: /\b_(?:false|maybe|true)\b/
+	},
 
-	// 'boolean': {
-	// 	pattern: /\b_(?:false|maybe|true)\b/
-	// },
+	'variable': [
+		{ pattern: /\|![a-zA-Z0-9_?!]+!\|/}, // variable encased like |!var!|
+		{ pattern: /\|![a-zA-Z0-9_?!]+\|!/}, // variable encased like |!var|!
+		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/}, // variable encased like !|var!|
+		{ pattern: /!\|\|!/}, // empty variable !||!
+		{ pattern: /![a-zA-Z][a-zA-Z0-9_?!]*!/}, // variable encased like !var!
+		{ pattern: /(?<![.:])\b[a-zA-Z][a-zA-Z_]*\b/ }, // variables and parameters
+		 // dynamic variable
+	],
 
+	'operator': [
+		/\^<</, /<</, 
+		{ pattern: /(?:\*\*\^?|\*\^?|\/\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
+		/\b_(?:cf|is|isnt)\b/, /<>/, />=/, /<=/, /</, />/, /~=/, /=/, // relational operators
+		/\*\*/, /\*/, /\//, // arithmetic operators
+		/\+/, /-/, /~/, // unary operators
+	],
+
+	'punctuation': /[[\](){},;]/,
+
+	// wat doet dit precies?
 	// 'char': {
 	// 	pattern: /%(?:[a-zA-Z][a-zA-Z0-9_?!]*|.)/,
 	// 	greedy: true
 	// },
 
+	// is dit nog nodig?
 	// 'variable': [
-	// 	/\|![a-zA-Z0-9_?!]+!\|/, /\|![a-zA-Z0-9_?!]+\|!/, /!\|[a-zA-Z0-9_?!]+\|!/, /!\|\|!/, /![a-zA-Z][a-zA-Z0-9_?!]*!/, // dynamic variable
 	// 	/[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/, // global variable
 	// 	/@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/, // global reference
 	// ],
 
-	// 'symbol': [
-	// 	{ pattern: /:(?:\|[^|]*\||[\w?!])+/, greedy: true},
-	// 	{ pattern: /\b_(?:unset)\b/, greedy: true}
-	// ],
+	'symbol': [
+		{ pattern: /:(?:\|[^|]*\||[\w?!])+/, greedy: true},
+		{ pattern: /\b_(?:unset)\b/, greedy: true}
+	],
 
-	// 'number': {
-	// 	pattern: /\b\d+(?:\.\d+)?(?:[eE&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])[rR][a-zA-Z0-9]+\b/,
-	// 	greedy: true
-	// },
+	'number': {
+		pattern: /\b\d+(?:\.\d+)?(?:[eE&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])[rR][a-zA-Z0-9]+\b/,
+		greedy: true
+	},
 
-	// 'string': {
-	// 	pattern: /"(?:\\.|[^"\\\r\n])*"|'(?:\\.|[^'\\\r\n])*'/,
-	// 	greedy: true
-	// },
-
-	// 'regex': {
-	// 	pattern: /\/(?:(?!\/)(?:\\.|[^\\\/\r\n])*\/[qisdlmuCX]*|\/)/,
-	// 	greedy: true
-	// },
-
-	// 'operator': [
-	// 	/\^<</, /<</, { pattern: /_(?:and|andif|or|orif|xor)<</, greedy: true }, { pattern: /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
-	// 	/>>/, /\b_return\b/, // return operators
-	// 	/\b_(?:cf|is|isnt)\b/, /<>/, />=/, /<=/, /</, />/, /~=/, /=/, // relational operators
-	// 	/\b_(?:and|andif|or|orif|xor)\b/, // logical operators
-	// 	/\*\*/, /\*/, /\//, /\b_(?:div|mod)\b/, // arithmetic operators
-	// 	/\+/, /-/, /\b_not\b/, /~/, // unary operators
-	// ],
-
-	// 'punctuation': /[[\](){},;]/,
-
-	// 'method-call': {
-	// 	pattern: /\b([a-zA-Z_]\w*)(\.)[a-zA-Z_]\w*[!?]?(?:\s*\([^()]*\))?/,
-	// 	lookbehind: false,
-	// 	greedy: true,
-	// 	inside: {
-	// 		'class-name': {
-	// 			pattern: /^[a-zA-Z_]\w*/,
-	// 			alias: 'class-name'
-	// 		},
-	// 		'dot': {
-	// 			pattern: /\./
-	// 		},
-    //     'function': {
-    //         pattern: /[a-zA-Z_]\w*[!?]?(?:\s*\([^()]*\))?/,
-    //         alias: 'function',
-    //         inside: {
-    //             'function': {
-    //                 pattern: /^[a-zA-Z_]\w*[!?]?/,
-    //                 alias: 'function'
-    //             },
-    //             'parameters': {
-    //                 pattern: /\([^()]*\)/,
-    //                 alias: 'symbol',
-    //                 inside: {
-    //                     'punctuation': /[(),]/,
-    //                     'parameter': {
-    //                         pattern: /[^(),\s]+/,
-    //                         alias: 'variable'
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-	// 	}
-  	// }
+	'string': {
+		pattern: /"(?:\\.|[^"\\\r\n])*"|'(?:\\.|[^'\\\r\n])*'/,
+		greedy: true
+	}
 };

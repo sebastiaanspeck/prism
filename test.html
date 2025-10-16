@@ -25,13 +25,14 @@ textarea {
 
 /* START custom CSS */
 
-/* pragma */
-.token.prolog {
+.token.pragma {
 	color: #f08080;
 }
 
-/* documentation */
 .token.comment {
+	color: #7f7f7f;
+}
+.token.documentation {
 	color: #ffe4b5;
 }
 
@@ -43,25 +44,30 @@ textarea {
 	color: #00bfff
 }
 
-/* .token.punctuation {
-	color: #ffffff;
-} */
-/* 
-.token.class-name, .token.boolean {
-    color: #88ea99;
+.token.self {
+	color: #98f5ff;
 }
-
-.token.variable {
-	color: #88ea99;
+ 
+.token.class-name, .token.boolean, .token.variable {
+    color: #4eee94;
 }
 
 .token.symbol {
-	color: #a1c463;
+	color: #a2cd5a;
 }
 
-.token.number {
-	color: #cccccd;
-} */
+.token.string {
+	color: #deb887;
+}
+
+.token.number, .token.punctuation, .token.operator {
+	color: #ffffff;
+	opacity: 1;
+}
+
+.token.declaration {
+	color: hotpink;
+}
 
 /* END custom CSS */
 
