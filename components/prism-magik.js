@@ -2,6 +2,7 @@
 Prism.languages.magik = {
 	'pragma': {
 		pattern: /_pragma.*/,
+		alias: 'prolog'
 	},
 
 	'declaration': [
@@ -10,8 +11,8 @@ Prism.languages.magik = {
 	],
 
 	'comment': [
-		{ pattern: /##.*/, greedy: true, alias: 'documentation' },
-		{ pattern: /#(?!#).*/, greedy: true },
+		{ pattern: /##.*/, greedy: true, alias: 'documentation' }, // documentation
+		{ pattern: /#(?!#).*/, greedy: true }, // comments
 	],
 
 	'function': [
