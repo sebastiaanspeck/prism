@@ -1,5 +1,6 @@
 /* eslint-disable regexp/prefer-w */
 Prism.languages.magik = {
+	// slot names toevoegen
 	'pragma': {
 		pattern: /_pragma.*/,
 		alias: 'prolog'
@@ -32,7 +33,7 @@ Prism.languages.magik = {
 		}
 	],
 
-	'keyword': [
+	'keyword': [ // case-insensitive maken
 	 	/\b_(?:class|dynamic|global|import|local)\b/, // variables, constant hoort hier niet bij
 		/\b_(?:block|endblock)\b/, // block
 		/\b_(?:elif|else|endif|if|then)\b/, // if
@@ -48,16 +49,16 @@ Prism.languages.magik = {
 		/\b_(?:endtry|try|when)\b/, // try
 		/\b_(?:endprotect|locking|protect|protection)\b/, // protect
 	 	/\b_(?:endlock|lock)\b/, // lock
-		/\b_(?:clone|package|super|thisthread)\b/, // builtins with similar highlighting
+		/\b_(?:clone|package|super|thisthread)\b/, // builtins with similar highlighting // opsplitsen
 	 	/\b_with\b/, // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
 		/\b_(?:optional|gather|scatter|allresults)\b/ // parameter options
 	],
 
 	'boolean': {
-		pattern: /\b_(?:false|maybe|true)\b/
+		pattern: /\b_(?:false|maybe|true)\b/i
 	},
 
-	'variable': [
+	'variable': [ // onderaan zetten
 		{ pattern: /\|![a-zA-Z0-9_?!]+!\|/}, // variable encased like |!var!|
 		{ pattern: /\|![a-zA-Z0-9_?!]+\|!/}, // variable encased like |!var|!
 		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/}, // variable encased like !|var!|
@@ -88,10 +89,16 @@ Prism.languages.magik = {
 	// 	/@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/, // global reference toevoegen
 	// ],
 
-	'symbol': [
+	'symbol': [ // opsplitsen
 		{ pattern: /:(?:\|[^|]*\||[\w?!])+/, greedy: true},
-		{ pattern: /\b_(?:unset)\b/, greedy: true}
+		{ pattern: /\b_(?:unset)\b/, greedy: true},
+		{ pattern: /\b_(?:constant)\b/, greedy: true}, // deze nog afmaken
 	],
+
+	'regex': {
+		pattern: /\/(?:(?!\/)(?:\\.|[^\\\/\r\n])*\/[qisdlmuCX]*|\/)/,
+		greedy: true
+	},
 
 	'number': {
 		pattern: /\b\d+(?:\.\d+)?(?:[eE&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])[rR][a-zA-Z0-9]+\b/,
