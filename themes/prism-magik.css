@@ -131,3 +131,43 @@ pre[class*="language-"] {
 	position: relative;
 	z-index: 1;
 }
+
+.token.pragma {
+	color: #f08080;
+}
+
+.token.comment {
+	color: #7f7f7f;
+}
+.token.documentation {
+	color: #ffe4b5;
+}
+
+.token.function {
+    color: #daa520;
+}
+
+.token.keyword, .token.builtins {
+	color: #00bfff
+}
+
+.token.self {
+	color: #98f5ff;
+}
+ 
+.token.class-name, .token.boolean, .token.variable, .token.slot {
+    color: #4eee94;
+}
+
+.token.symbol, .token.unset, .token.constant {
+	color: #a2cd5a;
+}
+
+.token.string {
+	color: #deb887;
+}
+
+.token.number, .token.punctuation, .token.operator, .token.declaration {
+	color: #ffffff;
+	opacity: 1;
+}
