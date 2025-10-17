@@ -43,9 +43,9 @@ Prism.languages.magik = {
 		/\b_(?:class|dynamic|global|import|local)\b/i, // variables
 		/\b_(?:block|endblock)\b/i, // block
 		/\b_(?:elif|else|endif|if|then)\b/i, // if
-		/\b_(?:and|andif|or|orif|xor|not)\b/i, // logical operators wat is hier mis
+		/\b_(?:and|andif|not|or|orif|xor)\b/i, // logical operators wat is hier mis
 		/\b_(?:is|isnt)\b/i, // comparison
-		/\b_(?:mod|div)\b/i, // math wat is hier mis
+		/\b_(?:div|mod)\b/i, // math wat is hier mis
 		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/i, // loop
 		/\b_(?:default|handling)\b/i, // handling
 		/\b_(?:catch|endcatch)\b/i, // catch
@@ -56,7 +56,7 @@ Prism.languages.magik = {
 		/\b_(?:endprotect|locking|protect|protection)\b/i, // protect
 		/\b_(?:endlock|lock)\b/i, // lock
 		/\b_with\b/i, // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
-		/\b_(?:optional|gather|scatter|allresults)\b/i // parameter options wat gaat hier mis?
+		/\b_(?:allresults|gather|optional|scatter)\b/i // parameter options wat gaat hier mis?
 	],
 
 	'builtins': {
@@ -82,11 +82,6 @@ Prism.languages.magik = {
 		pattern: /%(?:[a-zA-Z][a-zA-Z0-9_?!]*|.)/,
 		greedy: true
 	},
-
-	'variable': [
-		/[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/, // global variable
-		/@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/, // global reference toevoegen
-	],
 
 	'symbol': {
 		pattern: /:(?:\|[^|]*\||[\w?!])+/,
@@ -124,6 +119,8 @@ Prism.languages.magik = {
 		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/ }, // variable encased like !|var!|
 		{ pattern: /!\|\|!/ }, // empty variable !||!
 		{ pattern: /![a-zA-Z][a-zA-Z0-9_?!]*!/ }, // variable encased like !var!
-		{ pattern: /(^|[^.:])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true }
-	],
+		{ pattern: /(^|[^.:])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true },
+		{ pattern: /[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/ },
+		{ pattern: /@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/ }
+	]
 };
