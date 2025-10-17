@@ -125,6 +125,6 @@ Prism.languages.magik = {
 		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/}, // variable encased like !|var!|
 		{ pattern: /!\|\|!/}, // empty variable !||!
 		{ pattern: /![a-zA-Z][a-zA-Z0-9_?!]*!/}, // variable encased like !var!
-		{ pattern: /(?<![.:])\b[a-zA-Z][a-zA-Z_]*\b/ }, // variables and parameters
+		{ pattern: /(^|[^.:])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true }
 	],
 };
