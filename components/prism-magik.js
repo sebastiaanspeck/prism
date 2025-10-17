@@ -6,7 +6,8 @@ Prism.languages.magik = {
 	},
 
 	'slot': {
-		pattern: /(?:(?<=^)|(?<=[\s({]))\.\s*([A-Za-z_]+)/ // slot names
+		pattern: /(^|[\s({])\.\s*([A-Za-z_]+)/,
+		lookbehind: true
 	},
 
 	'declaration': [
