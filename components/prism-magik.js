@@ -11,8 +11,9 @@ Prism.languages.magik = {
 	},
 
 	'declaration': [
-		{ pattern: /(?<=_package).*/,	greedy: true },
-		{ pattern: /(?<=\b_(global|constant)\s+)[^;]+/,	greedy: true },
+		{ pattern: /(_package).*/, greedy: true, lookbehind: true },
+		{ pattern: /(\b_global\s+)[^;]+/, greedy: true, lookbehind: true },
+		{ pattern: /(\b_constant\s+)[^<<]+/, greedy: true, lookbehind: true }
 	],
 
 	'comment': [
@@ -22,14 +23,15 @@ Prism.languages.magik = {
 
 	'function': [
 		{ pattern: /\b_(?:abstract|endmethod|iter|method|private)\b/, greedy: true }, // method keywords
-		{ pattern:  /\b_(?:endproc|proc)\b/ }, // procedure 
-		{ pattern: /(?<=\.)\s*([A-Za-z_]+)/ } // method calls
+		{ pattern: /\b_(?:endproc|proc)\b/ }, // procedure 
+		{ pattern: /(\.)\s*([A-Za-z_]+)/, lookbehind: true } // method calls
 	],
 
 	'self': [
 		{
-			pattern: /(?<=_method )\S+(?=\.)/,
-			greedy: true
+			pattern: /(_method )\S+(?=\.)/,
+			greedy: true,
+			lookbehind: true
 		},
 		{
 			pattern: /_self/,
