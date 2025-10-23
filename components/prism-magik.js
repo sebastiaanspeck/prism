@@ -47,13 +47,16 @@ Prism.languages.magik = {
 		/\+/, /-/, /~/, // unary operators
 	],
 
+	'keyword-operator': [
+		{ pattern: /\b_(?:cf|is|isnt)\b/i, alias: 'keyword'}, // comparison
+		{ pattern: /\b_(?:div|mod)\b/i, alias: 'keyword'} // math
+	],
+
 	'keyword': [
 		/\b_(?:class|dynamic|global|import|local)\b/i, // variables
 		/\b_(?:block|endblock)\b/i, // block
 		/\b_(?:elif|else|endif|if|then)\b/i, // if
 		/\b_(?:and|andif|not|or|orif|xor)\b/i, // logical operators 
-		/\b_(?:cf|is|isnt)\b/i, // comparison
-		/\b_(?:div|mod)\b/i, // math wat is hier mis
 		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/i, // loop
 		/\b_(?:default|handling)\b/i, // handling
 		/\b_(?:catch|endcatch)\b/i, // catch
@@ -64,7 +67,7 @@ Prism.languages.magik = {
 		/\b_(?:endprotect|locking|protect|protection)\b/i, // protect
 		/\b_(?:endlock|lock)\b/i, // lock
 		/\b_with\b/i, // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
-		/\b_(?:allresults|gather|optional|scatter)\b/i // parameter options wat gaat hier mis?
+		/\b_(?:allresults|gather|optional|scatter)\b/i // parameter options
 	],
 
 	'builtin': {

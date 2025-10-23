@@ -147,7 +147,9 @@ pre[class*="language-"] {
     color: #daa520;
 }
 
-.token.keyword, .token.builtin {
+.token.keyword,
+.token.keyword-operator, 
+.token.builtin {
 	color: #00bfff
 }
 
@@ -155,11 +157,16 @@ pre[class*="language-"] {
 	color: #98f5ff;
 }
  
-.token.class-name, .token.boolean, .token.variable, .token.slot {
+.token.class-name,
+.token.boolean, 
+.token.variable, 
+.token.slot {
     color: #4eee94;
 }
 
-.token.symbol, .token.unset, .token.constant {
+.token.symbol, 
+.token.unset, 
+.token.constant {
 	color: #a2cd5a;
 }
 
@@ -167,7 +174,10 @@ pre[class*="language-"] {
 	color: #deb887;
 }
 
-.token.number, .token.punctuation, .token.operator, .token.declaration {
+.token.number, 
+.token.punctuation, 
+.token.operator, 
+.token.declaration {
 	color: #ffffff;
 	opacity: 1;
 }
