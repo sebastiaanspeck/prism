@@ -147,7 +147,7 @@ pre[class*="language-"] {
     color: #daa520;
 }
 
-.token.keyword, .token.builtins {
+.token.keyword, .token.builtin {
 	color: #00bfff
 }
 
