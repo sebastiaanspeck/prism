@@ -86,8 +86,7 @@ Prism.languages.magik = {
 	},
 
 	'symbol': {
-		pattern: /:(?:\|[^|]*\||[\w?!])+/,
-		greedy: true
+		pattern: /:(?:\|[^|]*\||[\w?!])+/
 	},
 
 	'unset': {
@@ -115,14 +114,18 @@ Prism.languages.magik = {
 		greedy: true
 	},
 
+	'global-reference': {
+		pattern: /@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/,
+		alias: 'symbol'
+	},
+
 	'variable': [
 		{ pattern: /\|![a-zA-Z0-9_?!]+!\|/ }, // variable encased like |!var!|
 		{ pattern: /\|![a-zA-Z0-9_?!]+\|!/ }, // variable encased like |!var|!
 		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/ }, // variable encased like !|var!|
 		{ pattern: /!\|\|!/ }, // empty variable !||!
 		{ pattern: /![a-zA-Z][a-zA-Z0-9_?!]*!/ }, // variable encased like !var!
-		{ pattern: /(^|[^.:])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true },
-		{ pattern: /[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/ },
-		{ pattern: /@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/ }
+		{ pattern: /(^|[^.])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true },
+		{ pattern: /[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/ }
 	]
 };
