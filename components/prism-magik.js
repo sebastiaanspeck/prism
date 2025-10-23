@@ -39,12 +39,20 @@ Prism.languages.magik = {
 		}
 	],
 
+	'operator': [
+		/\^<</, /<</, { pattern: /_(?:and|andif|or|orif|xor)<</, greedy: true }, { pattern: /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
+		{ pattern: /(?:\*\*\^?|\*\^?|\/\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
+		 /<>/, />=/, /<=/, /</, /(?<!>)>(?!>)/, /~=/, /=/, // relational operators
+		/\*\*/, /\*/, /\//, // arithmetic operators
+		/\+/, /-/, /~/, // unary operators
+	],
+
 	'keyword': [
 		/\b_(?:class|dynamic|global|import|local)\b/i, // variables
 		/\b_(?:block|endblock)\b/i, // block
 		/\b_(?:elif|else|endif|if|then)\b/i, // if
-		/\b_(?:and|andif|not|or|orif|xor)\b/i, // logical operators wat is hier mis
-		/\b_(?:is|isnt)\b/i, // comparison
+		/\b_(?:and|andif|not|or|orif|xor)\b/i, // logical operators 
+		/\b_(?:cf|is|isnt)\b/i, // comparison
 		/\b_(?:div|mod)\b/i, // math wat is hier mis
 		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/i, // loop
 		/\b_(?:default|handling)\b/i, // handling
@@ -66,14 +74,6 @@ Prism.languages.magik = {
 	'boolean': {
 		pattern: /\b_(?:false|maybe|true)\b/i
 	},
-
-	'operator': [
-		/\^<</, /<</,
-		{ pattern: /(?:\*\*\^?|\*\^?|\/\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
-		/\b_(?:cf|is|isnt)\b/, /<>/, />=/, /<=/, /</, />/, /~=/, /=/, // relational operators
-		/\*\*/, /\*/, /\//, // arithmetic operators
-		/\+/, /-/, /~/, // unary operators
-	],
 
 	'punctuation': /[[\](){},;]/,
 

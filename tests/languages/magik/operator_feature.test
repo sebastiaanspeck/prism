@@ -19,7 +19,6 @@ _div^<<
 -^<<
 +<<
 +^<<
-_cf
 =
 ~=
 <>
@@ -39,26 +38,25 @@ _cf
 [
 	["operator", "^<<"],
 	["operator", "<<"],
-	["keyword", "_and"], ["operator", "<<"],
-	["keyword", "_andif"], ["operator", "<<"],
-	["keyword", "_or"], ["operator", "<<"],
-	["keyword", "_orif"], ["operator", "<<"],
-	["keyword", "_xor"], ["operator", "<<"],
+	["operator", "_and<<"],
+	["operator", "_andif<<"],
+	["operator", "_or<<"],
+	["operator", "_orif<<"],
+	["operator", "_xor<<"],
 	["operator", "**<<"],
 	["operator", "**^<<"],
 	["operator", "*<<"],
 	["operator", "*^<<"],
 	["operator", "/<<"],
 	["operator", "/^<<"],
-	["keyword", "_mod"], ["operator", "<<"],
-	["keyword", "_mod"], ["operator", "^<<"],
-	["keyword", "_div"], ["operator", "<<"],
-	["keyword", "_div"], ["operator", "^<<"],
+	["operator", "_mod<<"],
+	["operator", "_mod^<<"],
+	["operator", "_div<<"],
+	["operator", "_div^<<"],
 	["operator", "-<<"],
 	["operator", "-^<<"],
 	["operator", "+<<"],
 	["operator", "+^<<"],
-	["operator", "_cf"],
 	["operator", "="],
 	["operator", "~="],
 	["operator", "<>"],
