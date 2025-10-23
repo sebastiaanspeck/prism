@@ -11,9 +11,9 @@ Prism.languages.magik = {
 	},
 
 	'declaration': [
-		{ pattern: /(_package).*/, greedy: true, lookbehind: true },
+		{ pattern: /(_package\s).*/, greedy: true, lookbehind: true },
 		{ pattern: /(\b_global\s+)[^;]+/, greedy: true, lookbehind: true },
-		{ pattern: /(\b_constant\s+)[^<]+/, greedy: true, lookbehind: true }
+		{ pattern: /(\b_constant\s)(.*?)(?=\s+<<)/, greedy: true, lookbehind: true }
 	],
 
 	'comment': [
@@ -60,8 +60,7 @@ Prism.languages.magik = {
 	],
 
 	'builtin': {
-		pattern: /\b_(?:clone|package|super|thisthread)\b/i,
-		alias: 'keyword'
+		pattern: /\b_(?:clone|package|super|thisthread)\b/i
 	},
 
 	'boolean': {
