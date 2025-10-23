@@ -6,12 +6,14 @@ Prism.languages.magik = {
 	},
 
 	'slot': {
-		pattern: /(?:(?<=^)|(?<=[\s({}]))\.\s*([A-Za-z_]+)/ // slot names
+		pattern: /(^|[\s({])\.\s*([A-Za-z_]+)/,
+		lookbehind: true
 	},
 
 	'declaration': [
-		{ pattern: /(?<=_package).*/,	greedy: true },
-		{ pattern: /(?<=\b_(global|constant)\s+)[^;]+/,	greedy: true }
+		{ pattern: /(_package).*/, greedy: true, lookbehind: true },
+		{ pattern: /(\b_global\s+)[^;]+/, greedy: true, lookbehind: true },
+		{ pattern: /(\b_constant\s+)[^<]+/, greedy: true, lookbehind: true }
 	],
 
 	'comment': [
@@ -21,14 +23,15 @@ Prism.languages.magik = {
 
 	'function': [
 		{ pattern: /\b_(?:abstract|endmethod|iter|method|private)\b/, greedy: true }, // method keywords
-		{ pattern:  /\b_(?:endproc|proc)\b/ }, // procedure 
-		{ pattern: /(?<=\.)\s*([A-Za-z_]+)/ } // method calls
+		{ pattern: /\b_(?:endproc|proc)\b/ }, // procedure
+		{ pattern: /(\.)\s*([A-Za-z_]+)/, lookbehind: true } // method calls
 	],
 
 	'self': [
 		{
-			pattern: /(?<=_method )\S+(?=\.)/,
-			greedy: true
+			pattern: /(_method )\S+(?=\.)/,
+			greedy: true,
+			lookbehind: true
 		},
 		{
 			pattern: /_self/,
@@ -37,23 +40,23 @@ Prism.languages.magik = {
 	],
 
 	'keyword': [
-	 	/\b_(?:class|dynamic|global|import|local)\b/i, // variables
+		/\b_(?:class|dynamic|global|import|local)\b/i, // variables
 		/\b_(?:block|endblock)\b/i, // block
 		/\b_(?:elif|else|endif|if|then)\b/i, // if
-		/\b_(?:and|andif|or|orif|xor|not)\b/i, // logical operators
+		/\b_(?:and|andif|not|or|orif|xor)\b/i, // logical operators wat is hier mis
 		/\b_(?:is|isnt)\b/i, // comparison
-	 	/\b_(?:mod|div)\b/i, // math		
+		/\b_(?:div|mod)\b/i, // math wat is hier mis
 		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/i, // loop
-	 	/\b_(?:default|handling)\b/i, // handling
-	 	/\b_(?:catch|endcatch)\b/i, // catch
-	 	/\b_throw\b/i, // throw
+		/\b_(?:default|handling)\b/i, // handling
+		/\b_(?:catch|endcatch)\b/i, // catch
+		/\b_throw\b/i, // throw
 		/>>/, /\b_return\b/i, // return
-	 	/\b_primitive\b/i, // primitive
+		/\b_primitive\b/i, // primitive
 		/\b_(?:endtry|try|when)\b/i, // try
 		/\b_(?:endprotect|locking|protect|protection)\b/i, // protect
-	 	/\b_(?:endlock|lock)\b/i, // lock
-	 	/\b_with\b/i, // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
-		/\b_(?:optional|gather|scatter|allresults)\b/i // parameter options}
+		/\b_(?:endlock|lock)\b/i, // lock
+		/\b_with\b/i, // standalone since _finally, _handling, _throw, _try, _leave and _continue all can have this
+		/\b_(?:allresults|gather|optional|scatter)\b/i // parameter options wat gaat hier mis?
 	],
 
 	'builtin': {
@@ -66,7 +69,7 @@ Prism.languages.magik = {
 	},
 
 	'operator': [
-		/\^<</, /<</, 
+		/\^<</, /<</,
 		{ pattern: /(?:\*\*\^?|\*\^?|\/\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
 		/\b_(?:cf|is|isnt)\b/, /<>/, />=/, /<=/, /</, />/, /~=/, /=/, // relational operators
 		/\*\*/, /\*/, /\//, // arithmetic operators
@@ -80,15 +83,9 @@ Prism.languages.magik = {
 		greedy: true
 	},
 
-	// is dit nog nodig?
-	// 'variable': [
-	// 	/[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/, // global variable
-	// 	/@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/, // global reference toevoegen
-	// ],
-
 	'symbol': {
-		 pattern: /:(?:\|[^|]*\||[\w?!])+/, 
-		 greedy: true
+		pattern: /:(?:\|[^|]*\||[\w?!])+/,
+		greedy: true
 	},
 
 	'unset': {
@@ -117,11 +114,13 @@ Prism.languages.magik = {
 	},
 
 	'variable': [
-		{ pattern: /\|![a-zA-Z0-9_?!]+!\|/}, // variable encased like |!var!|
-		{ pattern: /\|![a-zA-Z0-9_?!]+\|!/}, // variable encased like |!var|!
-		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/}, // variable encased like !|var!|
-		{ pattern: /!\|\|!/}, // empty variable !||!
-		{ pattern: /![a-zA-Z][a-zA-Z0-9_?!]*!/}, // variable encased like !var!
-		{ pattern: /(?<![.:])\b[a-zA-Z][a-zA-Z_]*\b/ }, // variables and parameters
-	],
+		{ pattern: /\|![a-zA-Z0-9_?!]+!\|/ }, // variable encased like |!var!|
+		{ pattern: /\|![a-zA-Z0-9_?!]+\|!/ }, // variable encased like |!var|!
+		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/ }, // variable encased like !|var!|
+		{ pattern: /!\|\|!/ }, // empty variable !||!
+		{ pattern: /![a-zA-Z][a-zA-Z0-9_?!]*!/ }, // variable encased like !var!
+		{ pattern: /(^|[^.:])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true },
+		{ pattern: /[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/ },
+		{ pattern: /@(?:[a-zA-Z_][a-zA-Z0-9_]*:)?[a-zA-Z_][a-zA-Z0-9_]*/ }
+	]
 };
