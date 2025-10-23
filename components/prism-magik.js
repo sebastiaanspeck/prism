@@ -11,7 +11,7 @@ Prism.languages.magik = {
 
 	'declaration': [
 		{ pattern: /(?<=_package).*/,	greedy: true },
-		{ pattern: /(?<=\b_(global|constant)\s+)[^;]+/,	greedy: true },
+		{ pattern: /(?<=\b_(global|constant)\s+)[^;]+/,	greedy: true }
 	],
 
 	'comment': [
@@ -56,7 +56,7 @@ Prism.languages.magik = {
 		/\b_(?:optional|gather|scatter|allresults)\b/i // parameter options}
 	],
 
-	'builtins': {
+	'builtin': {
 		pattern: /\b_(?:clone|package|super|thisthread)\b/i,
 		alias: 'keyword'
 	},
