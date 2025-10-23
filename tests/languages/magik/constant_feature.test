@@ -1,0 +1,14 @@
+_constant something
+_global _constant something
+
+
+----------------------------------------------------
+
+[
+	["constant", "_constant"], ["variable", "something"],
+    ["keyword", "_global"], ["constant", "_constant"], ["variable", "something"]
+]
+
+----------------------------------------------------
+
+Checks for constants.
