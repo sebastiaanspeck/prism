@@ -12,7 +12,7 @@ Prism.languages.magik = {
 
 	'declaration': [
 		{ pattern: /(_package\s).*/, greedy: true, lookbehind: true },
-		{ pattern: /(\b_global\s+)[^;]+/, greedy: true, lookbehind: true },
+		{ pattern: /(?<=\b_global\s+)(?!_)\w+/, greedy: true },
 		{ pattern: /(\b_constant\s)(.*?)(?=\s+<<)/, greedy: true, lookbehind: true }
 	],
 
