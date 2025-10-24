@@ -10,6 +10,12 @@ Prism.languages.magik = {
 		lookbehind: true
 	},
 
+	'regex': {
+		pattern: /\/(?:(?!\/)(?:\\.|[^\\\/\r\n])*\/[qisdlmuCX]*|\/)/,
+		greedy: true
+	},
+
+
 	'declaration': [
 		{ pattern: /(_package\s).*/, greedy: true, lookbehind: true },
 		{ pattern: /(?<=\b_global\s+)(?!_)\w+/, greedy: true },
@@ -98,11 +104,6 @@ Prism.languages.magik = {
 	'constant': {
 		pattern: /\b_(?:constant)\b/,
 		alias: 'symbol'
-	},
-
-	'regex': {
-		pattern: /\/(?:(?!\/)(?:\\.|[^\\\/\r\n])*\/[qisdlmuCX]*|\/)/,
-		greedy: true
 	},
 
 	'number': {
