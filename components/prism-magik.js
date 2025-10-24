@@ -78,16 +78,17 @@ Prism.languages.magik = {
 		pattern: /\b_(?:false|maybe|true)\b/i
 	},
 
-	'punctuation': /[[\](){},;]/,
-
 	'char': {
 		pattern: /%(?:[a-zA-Z][a-zA-Z0-9_?!]*|.)/,
 		greedy: true
 	},
 
 	'symbol': {
-		pattern: /:(?:\|[^|]*\||[\w?!])+/
+		pattern: /(^|[^A-Za-z0-9_]):[A-Za-z0-9_|]+(?:\([^)]*\)|\{[^}]*\}|\[[^\]]*\])?[A-Za-z0-9_|]*/,
+		lookbehind: true
 	},
+
+	'punctuation': /[[\](){},;]/,
 
 	'unset': {
 		pattern: /\b_(?:unset)\b/,
