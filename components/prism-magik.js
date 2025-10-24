@@ -18,8 +18,8 @@ Prism.languages.magik = {
 
 	'declaration': [
 		{ pattern: /(_package\s).*/, greedy: true, lookbehind: true },
-		{ pattern: /(?<=\b_global\s+)(?!_)\w+/, greedy: true },
-		{ pattern: /(\b_constant\s)(.*?)(?=\s+<<)/, greedy: true, lookbehind: true }
+		{ pattern: /(\b_global\s+)(?!_)\w+/, greedy: true, lookbehind: true },
+		{ pattern: /(\b_constant\s+)([a-zA-Z_]+)/, lookbehind: true, greedy: true }
 	],
 
 	'comment': [
@@ -48,21 +48,21 @@ Prism.languages.magik = {
 	'operator': [
 		/\^<</, /<</, { pattern: /_(?:and|andif|or|orif|xor)<</, greedy: true }, { pattern: /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
 		{ pattern: /(?:\*\*\^?|\*\^?|\/\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
-		 /<>/, />=/, /<=/, /</, /(?<!>)>(?!>)/, /~=/, /=/, // relational operators
+		/<>/, />=/, /<=/, /</, { pattern: /(^|[^>])>(?!>)/, lookbehind: true }, /~=/, /=/, // relational operators
 		/\*\*/, /\*/, /\//, // arithmetic operators
 		/\+/, /-/, /~/, // unary operators
 	],
 
 	'keyword-operator': [
-		{ pattern: /\b_(?:cf|is|isnt)\b/i, alias: 'keyword'}, // comparison
-		{ pattern: /\b_(?:div|mod)\b/i, alias: 'keyword'} // math
+		{ pattern: /\b_(?:cf|is|isnt)\b/i, alias: 'keyword' }, // comparison
+		{ pattern: /\b_(?:div|mod)\b/i, alias: 'keyword' } // math
 	],
 
 	'keyword': [
 		/\b_(?:class|dynamic|global|import|local)\b/i, // variables
 		/\b_(?:block|endblock)\b/i, // block
 		/\b_(?:elif|else|endif|if|then)\b/i, // if
-		/\b_(?:and|andif|not|or|orif|xor)\b/i, // logical operators 
+		/\b_(?:and|andif|not|or|orif|xor)\b/i, // logical operators
 		/\b_(?:continue|endloop|finally|for|leave|loop|loopbody|over|while)\b/i, // loop
 		/\b_(?:default|handling)\b/i, // handling
 		/\b_(?:catch|endcatch)\b/i, // catch

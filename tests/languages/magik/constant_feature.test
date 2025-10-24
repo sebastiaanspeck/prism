@@ -5,8 +5,8 @@ _global _constant something
 ----------------------------------------------------
 
 [
-	["constant", "_constant"], ["variable", "something"],
-    ["keyword", "_global"], ["constant", "_constant"], ["variable", "something"]
+	["constant", "_constant"], ["declaration", "something"],
+    ["keyword", "_global"], ["constant", "_constant"], ["declaration", "something"]
 ]
 
 ----------------------------------------------------
