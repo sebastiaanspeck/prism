@@ -126,7 +126,7 @@ Prism.languages.magik = {
 		{ pattern: /!\|[a-zA-Z0-9_?!]+\|!/ }, // variable encased like !|var!|
 		{ pattern: /!\|\|!/ }, // empty variable !||!
 		{ pattern: /![a-zA-Z][a-zA-Z0-9_?!]*!/ }, // variable encased like !var!
-		{ pattern: /(^|[^.])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true },
-		{ pattern: /[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/ }
+		{ pattern: /\b[A-Za-z_]+:[A-Za-z_]+\b/ }, // variable with a prefix like sw:gis_program_manager
+		{ pattern: /(^|[^.])\b[a-zA-Z][a-zA-Z_]*\b/, lookbehind: true }
 	]
 };
