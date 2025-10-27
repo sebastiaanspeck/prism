@@ -10,7 +10,7 @@ Prism.languages.magik = {
 	},
 
 	'slot': {
-		pattern: /(^|[\s({])\.\s*([A-Za-z_]+)/,
+		pattern: /(^|[\s({])\.\s*(?:[A-Za-z_]+)/,
 		lookbehind: true
 	},
 
@@ -22,7 +22,7 @@ Prism.languages.magik = {
 	'declaration': [
 		{ pattern: /(\b_package\b\s+).*/i, greedy: true, lookbehind: true },
 		{ pattern: /(\b_global\b\s+)(?!_)\w+/i, greedy: true, lookbehind: true },
-		{ pattern: /(\b_constant\b\s+)([a-z_]+)/i, greedy: true, lookbehind: true }
+		{ pattern: /(\b_constant\b\s+)(?:[a-z_]+)/i, greedy: true, lookbehind: true }
 	],
 
 	'comment': [
@@ -35,7 +35,7 @@ Prism.languages.magik = {
 		{ pattern: /\b_(?:endproc|proc)\b/ }, // procedure
 		{ pattern: /(\.)\s*\|[A-Za-z_]\w*[!?]?\|/, lookbehind: true }, // encased |methodNames|
 		{ pattern: /(\.)\s*[A-Za-z_]\w*[!?]?/, lookbehind: true }, // methods
-		{ pattern: /(\.)\s*(\|[A-Za-z_0-9?!]+\||[A-Za-z_0-9?!]+)/, lookbehind: true } // all in one regex
+		{ pattern: /(\.)\s*(?:\|[A-Za-z_0-9?!]+\||[A-Za-z_0-9?!]+)/, lookbehind: true } // all in one regex
 	],
 
 	'self': [
