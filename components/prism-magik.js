@@ -30,7 +30,7 @@ Prism.languages.magik = {
 	'function': [
 		{ pattern: /\b_(?:abstract|endmethod|iter|method|private)\b/, greedy: true }, // method keywords
 		{ pattern: /\b_(?:endproc|proc)\b/ }, // procedure
-		{ pattern: /(\.)\s*([A-Za-z_]+)/, lookbehind: true } // method calls
+		{ pattern: /(\.)\s*(\|?[A-Za-z_]\w*[!?]?)/, lookbehind: true }
 	],
 
 	'self': [
