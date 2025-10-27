@@ -14,4 +14,3 @@ _constant yippie << 2
 ----------------------------------------------------
 
 Checks for declarations.
-_global _constant !done_meas_follow_nodes! << _unset
