@@ -31,7 +31,8 @@ Prism.languages.magik = {
 		{ pattern: /\b_(?:abstract|endmethod|iter|method|private)\b/, greedy: true }, // method keywords
 		{ pattern: /\b_(?:endproc|proc)\b/ }, // procedure
 		{ pattern: /(\.)\s*\|[A-Za-z_]\w*[!?]?\|/, lookbehind: true }, // encased |methodNames|
-		{ pattern: /(\.)\s*[A-Za-z_]\w*[!?]?/, lookbehind: true } // methods
+		{ pattern: /(\.)\s*[A-Za-z_]\w*[!?]?/, lookbehind: true }, // methods
+		{ pattern: /(\.)\s*(\|[A-Za-z_0-9?!]+\||[A-Za-z_0-9?!]+)/, lookbehind: true } // all in one regex
 	],
 
 	'self': [
