@@ -14,4 +14,4 @@
 
 ----------------------------------------------------
 
-Checks for _unset.
+Checks for @global_references.
