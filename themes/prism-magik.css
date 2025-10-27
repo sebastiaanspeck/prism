@@ -136,6 +136,11 @@ pre[class*="language-"] {
 	color: #f08080;
 }
 
+.token.pragma-punctuation {
+	color: #f08080;
+	opacity: 0.7;
+}
+
 .token.comment {
 	color: #7f7f7f;
 }

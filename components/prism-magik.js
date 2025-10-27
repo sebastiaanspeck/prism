@@ -2,7 +2,11 @@
 Prism.languages.magik = {
 	'pragma': {
 		pattern: /_pragma.*/,
-		alias: 'prolog'
+		alias: 'prolog',
+		inside: {
+			'modifier': /classify_level|topic|usage/,
+			'pragma-punctuation': { pattern: /[={},]/ }
+		}
 	},
 
 	'slot': {
@@ -15,11 +19,10 @@ Prism.languages.magik = {
 		greedy: true
 	},
 
-
 	'declaration': [
 		{ pattern: /(\b_package\b\s+).*/i, greedy: true, lookbehind: true },
 		{ pattern: /(\b_global\b\s+)(?!_)\w+/i, greedy: true, lookbehind: true },
-		{ pattern: /(\b_constant\b\s+)([a-zA-Z_]+)/i, greedy: true, lookbehind: true }
+		{ pattern: /(\b_constant\b\s+)([a-z_]+)/i, greedy: true, lookbehind: true }
 	],
 
 	'comment': [
