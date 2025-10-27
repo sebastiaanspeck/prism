@@ -4,8 +4,8 @@ variable.method_name
 variable.method_name!
 variable.method_name?
 variable.method_name()
+variable.|methodName|()
 .slot_name
-|methodName|()
 ----------------------------------------------------
 
 [
@@ -15,6 +15,7 @@ variable.method_name()
     ["variable", "variable"], ".", ["function", "method_name!"],
     ["variable", "variable"], ".", ["function", "method_name?"],
     ["variable", "variable"], ".", ["function", "method_name"], ["punctuation", "("], ["punctuation", ")"],
+    ["variable", "variable"], ".", ["function", "|methodName|"], ["punctuation", "("], ["punctuation", ")"],
     ["slot", ".slot_name"]
 ]
 
