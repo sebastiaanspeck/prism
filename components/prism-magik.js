@@ -17,9 +17,9 @@ Prism.languages.magik = {
 
 
 	'declaration': [
-		{ pattern: /(_package\s).*/, greedy: true, lookbehind: true },
-		{ pattern: /(\b_global\s+)(?!_)\w+/, greedy: true, lookbehind: true },
-		{ pattern: /(\b_constant\s+)([a-zA-Z_]+)/, lookbehind: true, greedy: true }
+		{ pattern: /(\b_package\b\s+).*/i, greedy: true, lookbehind: true },
+		{ pattern: /(\b_global\b\s+)(?!_)\w+/i, greedy: true, lookbehind: true },
+		{ pattern: /(\b_constant\b\s+)([a-zA-Z_]+)/i, greedy: true, lookbehind: true }
 	],
 
 	'comment': [
@@ -37,18 +37,18 @@ Prism.languages.magik = {
 
 	'self': [
 		{
-			pattern: /(_method )\S+(?=\.)/,
+			pattern: /(\b_method\b\s+)\S+(?=\.)/,
 			greedy: true,
 			lookbehind: true
 		},
 		{
-			pattern: /_self/,
+			pattern: /\b_self\b/i,
 			greedy: true
 		}
 	],
 
 	'operator': [
-		/\^<</, /<</, { pattern: /_(?:and|andif|or|orif|xor)<</, greedy: true }, { pattern: /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
+		/\^<</, /<</, { pattern: /_(?:and|andif|or|orif|xor)<</i, greedy: true }, { pattern: /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</i, greedy: true }, // assignment operators
 		{ pattern: /(?:\*\*\^?|\*\^?|\/\^?|-\^?|\+\^?)<</, greedy: true }, // assignment operators
 		/<>/, />=/, /<=/, /</, { pattern: /(^|[^>])>(?!>)/, lookbehind: true }, /~=/, /=/, // relational operators
 		/\*\*/, /\*/, /\//, // arithmetic operators
@@ -99,7 +99,7 @@ Prism.languages.magik = {
 	'punctuation': /[[\](){},;]/,
 
 	'unset': {
-		pattern: /\b_(?:unset)\b/,
+		pattern: /\b_(?:unset)\b/i,
 		alias: 'symbol'
 	},
 
