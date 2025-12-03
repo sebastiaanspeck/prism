@@ -1,0 +1,51 @@
+description
+end
+hidden 
+optional
+install_requires
+required_by
+requires
+requires_datamodel
+requires_java
+tests
+tests_modules
+do_not_translate
+language
+messages
+condition_message_accesor
+templates
+ace_installation
+auth_installation
+case_installation
+style_installation
+system_installation
+
+----------------------------------------------------
+
+[
+        ["keyword", "description\r"],
+        ["keyword", "\nend\r"],
+        ["keyword", "\nhidden \r"],
+        ["keyword", "\noptional\r"],
+        ["keyword", "\ninstall_requires\r"],
+        ["keyword", "\nrequired_by\r"],
+        ["keyword", "\nrequires\r"],
+        ["keyword", "\nrequires_datamodel\r"],
+        ["keyword", "\nrequires_java\r"],
+        ["keyword", "\ntests\r"],
+        ["keyword", "\ntests_modules\r"],
+        ["keyword", "\ndo_not_translate\r"],
+        ["keyword", "\nlanguage\r"],
+        ["keyword", "\nmessages\r"],
+        ["keyword", "\ncondition_message_accesor\r"],
+        ["keyword", "\ntemplates\r"],
+        ["keyword", "\nace_installation\r"],
+        ["keyword", "\nauth_installation\r"],
+        ["keyword", "\ncase_installation\r"],
+        ["keyword", "\nstyle_installation\r"],
+        ["keyword", "\nsystem_installation"]
+]
+
+----------------------------------------------------
+
+Checks for all known keywords.

@@ -1,0 +1,22 @@
+description
+end
+title
+version
+requires
+do_not_translate
+
+----------------------------------------------------
+
+[
+        ["keyword", "description\r"],
+        ["keyword", "\nend\r"],
+        ["keyword", "\ntitle \r"],
+        ["keyword", "\nversion\r"],
+        ["keyword", "\nrequires\r"],
+        ["keyword", "\ndo_not_translate\r"]
+]
+
+----------------------------------------------------
+
+Checks for all known keywords.
+
