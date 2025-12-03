@@ -1,22 +1,38 @@
 description
+	Some description
 end
+
 title
-version
+	Some title
+end
+
 requires
+	product
+end
+
+version	1.2.3.4-10
+
 do_not_translate
 
 ----------------------------------------------------
 
 [
-        ["keyword", "description\r"],
-        ["keyword", "\nend\r"],
-        ["keyword", "\ntitle \r"],
-        ["keyword", "\nversion\r"],
-        ["keyword", "\nrequires\r"],
-        ["keyword", "\ndo_not_translate\r"]
+	["keyword", "description\r"],
+	"\n\tSome description\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\ntitle\r"],
+	"\n\tSome title\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\nrequires\r"],
+	"\n\tproduct\r",
+	["keyword", "\nend\r\n\r"],
+	["version", [
+		["keyword", "\nversion"],
+		["number", "1.2.3.4-10"]
+	]],
+	["keyword", "\n\r\ndo_not_translate"]
 ]
 
 ----------------------------------------------------
 
 Checks for all known keywords.
-

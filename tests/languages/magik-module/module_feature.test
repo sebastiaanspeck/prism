@@ -1,0 +1,19 @@
+example_module	1
+other_example_module	2
+
+----------------------------------------------------
+
+[
+	["module", [
+		["module-name", "example_module"],
+		["number", "1"]
+	]],
+	["module", [
+		["module-name", "other_example_module"],
+		["number", "2"]
+	]]
+]
+
+----------------------------------------------------
+
+Checks for module name and version

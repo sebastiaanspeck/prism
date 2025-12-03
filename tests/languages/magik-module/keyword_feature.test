@@ -1,18 +1,49 @@
 description
+	Some description
 end
-hidden 
+
+hidden
+
 optional
+	module
+end
+
 install_requires
+	module
+end
+
 required_by
+	module
+end
+
 requires
+	module
+end
+
 requires_datamodel
+	module
+end
+
 requires_java
-tests
+	java_module
+end
+
+test
+	module
+end
+
 tests_modules
+	module
+end
+
 do_not_translate
-language
+
+language en_gb
+
 messages
+
 condition_message_accesor
+
 templates
 ace_installation
 auth_installation
@@ -23,27 +54,44 @@ system_installation
 ----------------------------------------------------
 
 [
-        ["keyword", "description\r"],
-        ["keyword", "\nend\r"],
-        ["keyword", "\nhidden \r"],
-        ["keyword", "\noptional\r"],
-        ["keyword", "\ninstall_requires\r"],
-        ["keyword", "\nrequired_by\r"],
-        ["keyword", "\nrequires\r"],
-        ["keyword", "\nrequires_datamodel\r"],
-        ["keyword", "\nrequires_java\r"],
-        ["keyword", "\ntests\r"],
-        ["keyword", "\ntests_modules\r"],
-        ["keyword", "\ndo_not_translate\r"],
-        ["keyword", "\nlanguage\r"],
-        ["keyword", "\nmessages\r"],
-        ["keyword", "\ncondition_message_accesor\r"],
-        ["keyword", "\ntemplates\r"],
-        ["keyword", "\nace_installation\r"],
-        ["keyword", "\nauth_installation\r"],
-        ["keyword", "\ncase_installation\r"],
-        ["keyword", "\nstyle_installation\r"],
-        ["keyword", "\nsystem_installation"]
+	["keyword", "description\r"],
+	"\n\tSome description\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\nhidden\r\n\r"],
+	["keyword", "\noptional\r"],
+	"\n\tmodule\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\ninstall_requires\r"],
+	"\n\tmodule\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\nrequired_by\r"],
+	"\n\tmodule\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\nrequires\r"],
+	"\n\tmodule\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\nrequires_datamodel\r"],
+	"\n\tmodule\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\nrequires_java\r"],
+	"\n\tjava_module\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\ntest\r"],
+	"\n\tmodule\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\ntests_modules\r"],
+	"\n\tmodule\r",
+	["keyword", "\nend\r\n\r"],
+	["keyword", "\ndo_not_translate\r\n\r"],
+	"\nlanguage en_gb\r",
+	["keyword", "\n\r\nmessages\r\n\r"],
+	["keyword", "\ncondition_message_accesor\r\n\r"],
+	["keyword", "\ntemplates\r"],
+	["keyword", "\nace_installation\r"],
+	["keyword", "\nauth_installation\r"],
+	["keyword", "\ncase_installation\r"],
+	["keyword", "\nstyle_installation\r"],
+	["keyword", "\nsystem_installation"]
 ]
 
 ----------------------------------------------------
