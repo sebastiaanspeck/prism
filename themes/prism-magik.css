@@ -41,55 +41,36 @@ pre[class*="language-"] {
 }
 
 .token.property {
-  color: #f08080
-}
-.token.boolean,
-.token.class-name,
-.token.variable {
-  color: #88ea99
+	color: #f08080
 }
 
 .token.function {
-  color: #cda735
+	color: #daa520;
 }
 
-.token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
 	color: #ffe4b5;
 }
 
-.token.punctuation {
-	opacity: .7;
-}
-
+.token.punctuation,
 .token.namespace {
 	opacity: .7;
 }
 
 .token.tag,
-.token.number,
 .token.deleted {
 	color: #cccccd;
 }
 
-.token.keyword,
-.token.selector,
-.token.constant,
-.token.builtin {
+.token.selector {
 	color: #f9ee98;
-}
-
-.token.symbol {
-  color: #a1c463;
 }
 
 .token.attr-name,
 .token.attr-value,
-.token.string,
 .token.char,
-.token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
@@ -105,6 +86,64 @@ pre[class*="language-"] {
 .token.regex,
 .token.important {
 	color: #E9C062;
+}
+
+.token.pragma {
+	color: #f08080;
+}
+
+.token.pragma-punctuation {
+	color: #f08080;
+	opacity: 0.7;
+}
+
+.token.comment {
+	color: #7f7f7f;
+}
+
+.token.documentation {
+	color: #ffe4b5;
+}
+
+.token.keyword,
+.token.keyword-operator,
+.token.builtin {
+	color: #00bfff
+}
+
+.token.self,
+.token.product-type {
+	color: #98f5ff;
+}
+
+.token.class-name,
+.token.boolean,
+.token.variable,
+.token.slot,
+.token.module-name,
+.token.product-name {
+	color: #4eee94;
+}
+
+.token.symbol,
+.token.unset,
+.token.constant {
+	color: #a2cd5a;
+}
+
+.token.string {
+	color: #deb887;
+}
+
+.token.number {
+	color: #ff995e;
+}
+
+.token.punctuation,
+.token.operator,
+.token.declaration,
+.token.module-version {
+	color: #ffffff;
 }
 
 .token.important,
@@ -130,62 +169,4 @@ pre[class*="language-"] {
 .token {
 	position: relative;
 	z-index: 1;
-}
-
-.token.pragma {
-	color: #f08080;
-}
-
-.token.pragma-punctuation {
-	color: #f08080;
-	opacity: 0.7;
-}
-
-.token.comment {
-	color: #7f7f7f;
-}
-.token.documentation {
-	color: #ffe4b5;
-}
-
-.token.function {
-    color: #daa520;
-}
-
-.token.keyword,
-.token.keyword-operator, 
-.token.builtin {
-	color: #00bfff
-}
-
-.token.self,
-.token.product_type {
-	color: #98f5ff;
-}
- 
-.token.class-name,
-.token.boolean, 
-.token.variable, 
-.token.slot,
-.token.module_name,
-.token.product_name {
-    color: #4eee94;
-}
-
-.token.symbol, 
-.token.unset, 
-.token.constant {
-	color: #a2cd5a;
-}
-
-.token.string {
-	color: #deb887;
-}
-
-.token.number, 
-.token.punctuation, 
-.token.operator, 
-.token.declaration {
-	color: #ffffff;
-	opacity: 1;
 }

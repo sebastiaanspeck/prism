@@ -1,0 +1,18 @@
+magik	1 # start with comment
+
+description # and a comment
+	Some description # and another one
+end ## final one
+
+----------------------------------------------------
+
+[
+	"magik\t1 ", ["comment", "# start with comment"],
+	"\r\n\r\ndescription ", ["comment", "# and a comment"],
+	"\r\n\tSome description ", ["comment", "# and another one"],
+	"\r\nend #", ["comment", "# final one"]
+]
+
+----------------------------------------------------
+
+Checks for comments.

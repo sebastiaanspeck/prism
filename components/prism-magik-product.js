@@ -1,18 +1,26 @@
-/* eslint-disable regexp/prefer-w */
 Prism.languages['magik-product'] = {
-  product_name: {
-    // Match only the name, NOT the product type / number
-    pattern: /^[A-Za-z_]\w*(?=\s+(?:\d+|config_product|customisation_product|layered_product))/m,
-    inside: {
-      product_type: {
-        pattern: /(config_product|customisation_product|layered_product)/i
-      }
-    }
-  },
+	'product': {
+		pattern: /^\w+\s*(?:config_product|customisation_product|layered_product)/m,
+		inside: {
+			'product-name': { pattern: /^\w+/ },
+			'product-type': { pattern: /(?:config_product|customisation_product|layered_product)/ }
+		}
+	},
 
-  keyword: [
-    /^\s*(?:description|end|title|version)\s*$/im,
-    /^\s*(?:requires)\s*$/im,
-    /^\s*(?:do_not_translate)\s*$/im
-  ]
+	'keyword': {
+		pattern: /^\s*(?:description|end|title|requires|do_not_translate)\s*$/m,
+	},
+
+	'version': {
+		pattern: /^\s*version\s*\d+(?:\.\d+){0,3}(?:-\d+)?/m,
+		inside: {
+			'keyword': /^\s*version/,
+			'number': /\d+(?:\.\d+){0,3}(?:-\d+)?$/
+		}
+	},
+
+	'comment': {
+		pattern: /#(?!#).*/,
+		greedy: true,
+	},
 };

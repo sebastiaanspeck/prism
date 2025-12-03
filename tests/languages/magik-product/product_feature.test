@@ -1,0 +1,24 @@
+magik	config_product
+magik	customisation_product
+magik	layered_product
+
+----------------------------------------------------
+
+[
+	["product", [
+		["product-name", "magik"],
+		["product-type", "config_product"]
+	]],
+	["product", [
+		["product-name", "magik"],
+		["product-type", "customisation_product"]
+	]],
+	["product", [
+		["product-name", "magik"],
+		["product-type", "layered_product"]
+	]]
+]
+
+----------------------------------------------------
+
+Checks for product-name and product-type
