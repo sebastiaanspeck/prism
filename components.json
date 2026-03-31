@@ -37,6 +37,10 @@
 		"prism-tomorrow": {
 			"title": "Tomorrow Night",
 			"owner": "Rosey"
+		},
+		"prism-magik": {
+			"title": "Magik",
+			"owner": "sebastiaanspeck"
 		}
 	},
 	"languages": {
