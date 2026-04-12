@@ -34,12 +34,12 @@ Prism.languages.magik = {
 		}
 	},
 
-	'number': /\b\d+(?:\.\d+)?(?:[e&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])r[a-z0-9]+\b/i,
-
 	'symbol': {
 		pattern: /(^|\W):(?:\|[^|]*\||\\.|[\w?!])+/,
 		lookbehind: true
 	},
+
+	'number': /\b\d+(?:\.\d+)?(?:[e&][+-]?\d+)?\b|\b(?:[2-9]|[12]\d|3[0-6])r[a-z0-9]+\b/i,
 
 	'operator': [
 		/_(?:and|andif|or|orif|xor)<</i, /(?:\*\*\^?|\*\^?|\/\^?|_mod\^?|_div\^?|-\^?|\+\^?)<</i, /\^?<</, // assignment operators
@@ -108,8 +108,8 @@ Prism.languages.magik = {
 	'function': [
 		/\b_(?:abstract|endmethod|iter|method|private)\b/i, // method keywords
 		/\b_(?:endproc|proc)\b/i, // procedure
-		{ pattern: /(\.)\s*\|[a-z_]\w*[!?]?\|/, lookbehind: true }, // encased |methodNames|
-		{ pattern: /(\.)\s*[a-z_]\w*[!?]?/, lookbehind: true }, // methods
+		{ pattern: /(\.)\s*\|[a-z][\w?!]*\|/, lookbehind: true }, // encased |methodNames|
+		{ pattern: /(\.)\s*[a-z][\w?!]*/, lookbehind: true }, // methods
 	],
 
 	'variable': [

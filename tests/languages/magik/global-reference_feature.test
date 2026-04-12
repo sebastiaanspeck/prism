@@ -1,4 +1,5 @@
 @gis_program_manager
+@sw:gis_program_manager
 (@gis_program_manager)
 {@gis_program_manager}
 ,@gis_program_manager
@@ -7,9 +8,10 @@
 
 [
 	["global-reference", "@gis_program_manager"],
-    ["punctuation", "("], ["global-reference", "@gis_program_manager"], ["punctuation", ")"],
-    ["punctuation", "{"], ["global-reference", "@gis_program_manager"], ["punctuation", "}"],
-    ["punctuation", ","], ["global-reference", "@gis_program_manager"]
+	["global-reference", "@sw:gis_program_manager"],
+	["punctuation", "("], ["global-reference", "@gis_program_manager"], ["punctuation", ")"],
+	["punctuation", "{"], ["global-reference", "@gis_program_manager"], ["punctuation", "}"],
+	["punctuation", ","], ["global-reference", "@gis_program_manager"]
 ]
 
 ----------------------------------------------------
