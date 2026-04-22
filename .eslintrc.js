@@ -130,6 +130,9 @@ module.exports = {
 				node: true,
 				worker: true
 			},
+			parserOptions: {
+				ecmaVersion: 2018
+			},
 			globals: {
 				'Prism': true,
 				// Allow Set and Map. They are partially supported by IE11
