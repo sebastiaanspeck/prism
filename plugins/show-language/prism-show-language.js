@@ -162,6 +162,8 @@
 		"llvm": "LLVM IR",
 		"log": "Log file",
 		"lolcode": "LOLCODE",
+		"magik-module": "Magik Module",
+		"magik-product": "Magik Product",
 		"magma": "Magma (CAS)",
 		"md": "Markdown",
 		"markup-templating": "Markup templating",

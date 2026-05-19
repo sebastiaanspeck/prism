@@ -1,0 +1,19 @@
+magik	layered_product # start with a comment
+
+description # and a comment
+	Some description # and another one
+end ## final one
+
+----------------------------------------------------
+
+[
+	["product", [
+		["product-name", "magik"],
+		["product-type", "layered_product"]
+	]],
+	["comment", "# start with a comment"],
+
+	"\r\n\r\ndescription ", ["comment", "# and a comment"],
+	"\r\n\tSome description ", ["comment", "# and another one"],
+	"\r\nend #", ["comment", "# final one"]
+]
